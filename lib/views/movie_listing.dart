@@ -10,8 +10,8 @@ class MovieListing extends StatefulWidget {
 }
 
 class _MovieListingState extends State<MovieListing> {
-  int _ticketamount =1;
-  
+  int _ticketamount = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +23,21 @@ class _MovieListingState extends State<MovieListing> {
         ),
         drawer: const NavDrawer(),
         body: Container(
-            child: const Column(children: [
+            child: Column(children: [
           Text("The Bee Movie"),
           Row(
             children: [Text("91 mins"), Text("PG")],
           ),
           Text("The Bee Movie is a movie about a bee"),
+          DropdownMenu<int>(
+              initialSelection: _ticketamount,
+              dropdownMenuEntries: const [
+                DropdownMenuEntry(value: 1, label: "1"),
+                DropdownMenuEntry(value: 2, label: "2"),
+                DropdownMenuEntry(value: 3, label: "3"),
+                DropdownMenuEntry(value: 4, label: "4"),
+                DropdownMenuEntry(value: 5, label: "5")
+              ])
         ])));
   }
 }
