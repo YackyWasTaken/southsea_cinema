@@ -15,7 +15,11 @@ class MovieListing extends StatelessWidget {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: const SizedBox.shrink(),
+      body: Container(
+        child: const Column(
+          children: [Text("The Bee Movie"), Text("The Bee Movie is a movie about a bee")]
+        )
+      )
     );
   }
 }
