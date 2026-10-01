@@ -32,7 +32,7 @@ class _MovieListingState extends State<MovieListing> {
           DropdownMenu<int>(
               initialSelection: _ticketamount,
               onSelected: (int? value) {
-                if (value != null){
+                if (value != null) {
                   setState(() {
                     _ticketamount = value;
                   });
@@ -45,11 +45,15 @@ class _MovieListingState extends State<MovieListing> {
                 DropdownMenuEntry(value: 4, label: "4"),
                 DropdownMenuEntry(value: 5, label: "5")
               ]),
-            ElevatedButton(
-            onPressed: () {},
-             child: Text("Add to order"),
-            ),
-
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                _feedback = "$_ticketamount ticket(s) added to order";
+              });
+            },
+            child: Text("Add to order"),
+          ),
+          Text(_feedback),
         ])));
   }
 }
