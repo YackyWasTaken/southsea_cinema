@@ -31,6 +31,13 @@ class _MovieListingState extends State<MovieListing> {
           Text("The Bee Movie is a movie about a bee"),
           DropdownMenu<int>(
               initialSelection: _ticketamount,
+              onSelected: (int? value) {
+                if (value != null){
+                  setState(() {
+                    _ticketamount = value;
+                  });
+                }
+              },
               dropdownMenuEntries: const [
                 DropdownMenuEntry(value: 1, label: "1"),
                 DropdownMenuEntry(value: 2, label: "2"),
