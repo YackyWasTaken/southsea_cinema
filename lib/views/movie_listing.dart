@@ -23,40 +23,69 @@ class _MovieListingState extends State<MovieListing> {
         ),
         drawer: const NavDrawer(),
         body: Container(
-          padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-          Text("The Bee Movie", style: cinemaHeaderStyle.copyWith(fontSize: 24,),),
-          Row(
-            children: [Text("91 mins", style: TextStyle(color: cinemaFontMuted, fontSize: 16),),SizedBox(width: 12,), Text("PG", style: TextStyle(color: cinemaFontMuted,fontSize: 16),)],
-          ),
-          Text("The Bee Movie is a movie about a bee"),
-          DropdownMenu<int>(
-              initialSelection: _ticketamount,
-              onSelected: (int? value) {
-                if (value != null) {
+            padding: const EdgeInsets.all(16.0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                "The Bee Movie",
+                style: cinemaHeaderStyle.copyWith(
+                  fontSize: 24,
+                ),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "91 mins",
+                    style: TextStyle(color: cinemaFontMuted, fontSize: 16),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Text(
+                    "PG",
+                    style: TextStyle(color: cinemaFontMuted, fontSize: 16),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Text("The Bee Movie is a movie about a bee"),
+              const SizedBox(
+                height: 12,
+              ),
+              DropdownMenu<int>(
+                  initialSelection: _ticketamount,
+                  onSelected: (int? value) {
+                    if (value != null) {
+                      setState(() {
+                        _ticketamount = value;
+                      });
+                    }
+                  },
+                  dropdownMenuEntries: const [
+                    DropdownMenuEntry(value: 1, label: "1"),
+                    DropdownMenuEntry(value: 2, label: "2"),
+                    DropdownMenuEntry(value: 3, label: "3"),
+                    DropdownMenuEntry(value: 4, label: "4"),
+                    DropdownMenuEntry(value: 5, label: "5")
+                  ]),
+                  const SizedBox(height: 12,),
+              ElevatedButton(
+                onPressed: () {
                   setState(() {
-                    _ticketamount = value;
+                    _feedback = "$_ticketamount ticket(s) added to order";
                   });
-                }
-              },
-              dropdownMenuEntries: const [
-                DropdownMenuEntry(value: 1, label: "1"),
-                DropdownMenuEntry(value: 2, label: "2"),
-                DropdownMenuEntry(value: 3, label: "3"),
-                DropdownMenuEntry(value: 4, label: "4"),
-                DropdownMenuEntry(value: 5, label: "5")
-              ]),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                _feedback = "$_ticketamount ticket(s) added to order";
-              });
-            },
-            child: Text("Add to order"),
-          ),
-          Text(_feedback),
-        ])));
+                },
+                child: Text("Add to order"),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Text(_feedback),
+            ])));
   }
 }
