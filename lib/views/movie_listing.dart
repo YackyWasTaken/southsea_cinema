@@ -23,10 +23,13 @@ class _MovieListingState extends State<MovieListing> {
         ),
         drawer: const NavDrawer(),
         body: Container(
-            child: Column(children: [
-          Text("The Bee Movie"),
+          padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+          Text("The Bee Movie", style: cinemaHeaderStyle.copyWith(fontSize: 24,),),
           Row(
-            children: [Text("91 mins"), Text("PG")],
+            children: [Text("91 mins", style: TextStyle(color: cinemaFontMuted, fontSize: 16),),SizedBox(width: 12,), Text("PG", style: TextStyle(color: cinemaFontMuted,fontSize: 16),)],
           ),
           Text("The Bee Movie is a movie about a bee"),
           DropdownMenu<int>(
