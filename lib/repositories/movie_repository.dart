@@ -6,8 +6,7 @@ class MovieRepository {
       Movie(
         id: 'bee-movie',
         title: 'Bee Movie',
-        synopsis:
-            'Bee movie synopsis.',
+        synopsis: 'Bee movie synopsis.',
         ageRating: 'PG',
         runtime: '91 mins',
         screeningTime: '18:00',
@@ -17,8 +16,7 @@ class MovieRepository {
       Movie(
         id: 'shrek',
         title: 'Shrek',
-        synopsis:
-            'Shrek synopsis.',
+        synopsis: 'Shrek synopsis.',
         ageRating: 'U',
         runtime: '90 mins',
         screeningTime: '20:00',
