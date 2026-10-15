@@ -7,7 +7,7 @@ class MovieRepository {
         id: 'bee-movie',
         title: 'Bee Movie',
         synopsis:
-            'Barry B. Benson discovers that humans have been stealing and consuming honey.',
+            'Bee movie synopsis.',
         ageRating: 'PG',
         runtime: '91 mins',
         screeningTime: '18:00',
@@ -18,7 +18,7 @@ class MovieRepository {
         id: 'shrek',
         title: 'Shrek',
         synopsis:
-            'An ogre sets out to rescue a princess and unexpectedly finds friendship along the way.',
+            'Shrek synopsis.',
         ageRating: 'U',
         runtime: '90 mins',
         screeningTime: '20:00',
@@ -26,5 +26,15 @@ class MovieRepository {
         imagePath: 'assets/images/shrek.jpg',
       ),
     ];
+  }
+
+  Movie? getMovieById(String id) {
+    for (final movie in getMovies()) {
+      if (movie.id == id) {
+        return movie;
+      }
+    }
+
+    return null;
   }
 }
