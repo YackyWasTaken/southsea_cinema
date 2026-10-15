@@ -50,7 +50,6 @@ class _MovieListingState extends State<MovieListing> {
               ),
             ),
             const SizedBox(height: 12),
-
             Row(
               children: [
                 Text(
@@ -70,36 +69,28 @@ class _MovieListingState extends State<MovieListing> {
                 ),
               ],
             ),
-
             const SizedBox(height: 16),
-
             Text(
               widget.movie.synopsis,
               style: const TextStyle(
                 color: cinemaFontWhite,
               ),
             ),
-
             const SizedBox(height: 16),
-
             Text(
               'Screening time: ${widget.movie.screeningTime}',
               style: const TextStyle(
                 color: cinemaFontWhite,
               ),
             ),
-
             const SizedBox(height: 8),
-
             Text(
-              'Ticket price: £${widget.movie.ticketPrice.toStringAsFixed(2)}',
+              'Ticket price: ${widget.movie.formattedPrice}',
               style: const TextStyle(
                 color: cinemaFontWhite,
               ),
             ),
-
             const SizedBox(height: 20),
-
             DropdownMenu<int>(
               initialSelection: _ticketamount,
               onSelected: (int? value) {
@@ -117,9 +108,7 @@ class _MovieListingState extends State<MovieListing> {
                 DropdownMenuEntry(value: 5, label: "5"),
               ],
             ),
-
             const SizedBox(height: 12),
-
             ElevatedButton(
               onPressed: () {
                 setState(() {
@@ -136,9 +125,7 @@ class _MovieListingState extends State<MovieListing> {
               ),
               child: const Text("Add to order"),
             ),
-
             const SizedBox(height: 12),
-
             Text(
               _feedback,
               style: const TextStyle(
