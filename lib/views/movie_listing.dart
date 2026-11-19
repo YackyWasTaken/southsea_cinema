@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/primary_button.dart';
+import 'package:southsea_cinema/models/basket_item.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 
 class MovieListing extends StatefulWidget {
   final Movie movie;
@@ -99,6 +101,13 @@ class _MovieListingState extends State<MovieListing> {
             PrimaryButton(
               label: 'Add to order',
               onPressed: () {
+                final BasketItem item = BasketItem(
+                  movie: widget.movie,
+                  quantity: _ticketamount,
+                );
+
+                BasketRepository.instance.addItem(item);
+
                 setState(() {
                   _feedback =
                       "$_ticketamount ticket(s) added to order for ${widget.movie.title}";
