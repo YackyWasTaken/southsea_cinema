@@ -52,51 +52,51 @@ void main() {
       expect(penceMovie.formattedPrice, '£7.50');
     });
     test('converts Movie from and to JSON correctly', () {
-  final Map<String, dynamic> movieJson = <String, dynamic>{
-    'id': 'bee-movie',
-    'title': 'Bee Movie',
-    'synopsis':
+      final Map<String, dynamic> movieJson = <String, dynamic>{
+        'id': 'bee-movie',
+        'title': 'Bee Movie',
+        'synopsis':
+            'Barry B. Benson discovers that humans have been stealing and consuming honey.',
+        'ageRating': 'PG',
+        'runtime': '91 mins',
+        'screeningTime': '18:00',
+        'ticketPrice': 7.50,
+        'imagePath': 'assets/images/bee_movie.jpg',
+      };
+
+      final Movie movie = Movie.fromJson(movieJson);
+
+      expect(movie.id, 'bee-movie');
+      expect(movie.title, 'Bee Movie');
+      expect(
+        movie.synopsis,
         'Barry B. Benson discovers that humans have been stealing and consuming honey.',
-    'ageRating': 'PG',
-    'runtime': '91 mins',
-    'screeningTime': '18:00',
-    'ticketPrice': 7.50,
-    'imagePath': 'assets/images/bee_movie.jpg',
-  };
+      );
+      expect(movie.ageRating, 'PG');
+      expect(movie.runtime, '91 mins');
+      expect(movie.screeningTime, '18:00');
+      expect(movie.ticketPrice, 7.50);
+      expect(movie.imagePath, 'assets/images/bee_movie.jpg');
 
-  final Movie movie = Movie.fromJson(movieJson);
+      expect(movie.toJson(), movieJson);
+    });
 
-  expect(movie.id, 'bee-movie');
-  expect(movie.title, 'Bee Movie');
-  expect(
-    movie.synopsis,
-    'Barry B. Benson discovers that humans have been stealing and consuming honey.',
-  );
-  expect(movie.ageRating, 'PG');
-  expect(movie.runtime, '91 mins');
-  expect(movie.screeningTime, '18:00');
-  expect(movie.ticketPrice, 7.50);
-  expect(movie.imagePath, 'assets/images/bee_movie.jpg');
+    test('fromJson converts whole number ticket price to double', () {
+      final Map<String, dynamic> movieJson = <String, dynamic>{
+        'id': 'test-movie',
+        'title': 'Test Movie',
+        'synopsis': 'A test movie.',
+        'ageRating': 'PG',
+        'runtime': '90 mins',
+        'screeningTime': '20:00',
+        'ticketPrice': 7,
+        'imagePath': 'assets/images/test.jpg',
+      };
 
-  expect(movie.toJson(), movieJson);
-});
+      final Movie movie = Movie.fromJson(movieJson);
 
-test('fromJson converts whole number ticket price to double', () {
-  final Map<String, dynamic> movieJson = <String, dynamic>{
-    'id': 'test-movie',
-    'title': 'Test Movie',
-    'synopsis': 'A test movie.',
-    'ageRating': 'PG',
-    'runtime': '90 mins',
-    'screeningTime': '20:00',
-    'ticketPrice': 7,
-    'imagePath': 'assets/images/test.jpg',
-  };
-
-  final Movie movie = Movie.fromJson(movieJson);
-
-  expect(movie.ticketPrice, 7.0);
-  expect(movie.ticketPrice, isA<double>());
-});
+      expect(movie.ticketPrice, 7.0);
+      expect(movie.ticketPrice, isA<double>());
+    });
   });
 }

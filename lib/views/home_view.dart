@@ -27,8 +27,7 @@ class _HomeViewState extends State<HomeView> {
     try {
       final MovieRepository repository = MovieRepository();
 
-      final List<Movie> movies =
-          await repository.loadMoviesFromAsset();
+      final List<Movie> movies = await repository.loadMoviesFromAsset();
 
       if (!mounted) {
         return;
